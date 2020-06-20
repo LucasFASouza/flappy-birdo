@@ -94,3 +94,14 @@ function Passaro(alturaJogo) {
 
     this.setY(alturaJogo / 2)
 }
+
+// const barreiras = new Barreiras(550, 1200, 200 ,400)
+// const passaro = new Passaro(550)
+// const areaDoJogo = document.querySelector('[wm-flappy]')
+
+areaDoJogo.appendChild(passaro.elemento)
+barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
+setInterval(() => {
+    barreiras.animar()
+    passaro.animar()
+},  20)
