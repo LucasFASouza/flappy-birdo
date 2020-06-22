@@ -68,7 +68,7 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto){
 }
 
 function Passaro(alturaJogo) {
-    let voando = false
+    this.voando = false
 
     this.elemento = novoElemento('img', 'passaro')
     this.elemento.src = 'imgs/passaro.png'
@@ -77,7 +77,7 @@ function Passaro(alturaJogo) {
     this.setY = y => this.elemento.style.bottom = `${y}px`
 
     window.onkeydown = e => voando = true
-    window.onkeyup = e => voando = false
+    // window.onkeyup = e => voando = false
 
     this.animar = () => {
         const novoY = this.getY() + (voando ? 8 : -5)
@@ -90,6 +90,7 @@ function Passaro(alturaJogo) {
         } else {
             this.setY(novoY)
         }
+        this.voando = false
     }
 
     this.setY(alturaJogo / 2)
